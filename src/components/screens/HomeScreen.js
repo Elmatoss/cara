@@ -25,11 +25,8 @@ const HomeScreen = ({ navigation, route }) => {
     category = route?.params?.category;
 
     if (Array.isArray(articles) && category) {
-      filteredArticles = filter(
-        articles,
-        item =>
-          console.log('ITEM ///////////////////////////', item) ||
-          find(item.categories, { id: category }),
+      filteredArticles = filter(articles, item =>
+        find(item.categories, { id: category }),
       );
     } else {
       filteredArticles = articlesData?.articles;
