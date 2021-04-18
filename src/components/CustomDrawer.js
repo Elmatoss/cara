@@ -53,7 +53,10 @@ const CustomDrawer = ({ navigation }) => {
         <View style={tailwind('flex flex-1 flex-col mt-20 ml-8')}>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(ROUTES.NESTEDSTACK.HOME, { isBlog: true })
+              navigation.navigate(ROUTES.NESTEDSTACK.HOME, {
+                isBlog: true,
+                category: undefined,
+              })
             }
           >
             <Text style={mainTextStyle}>Home</Text>

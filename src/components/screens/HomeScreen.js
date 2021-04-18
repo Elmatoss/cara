@@ -19,27 +19,28 @@ const HomeScreen = ({ navigation, route }) => {
   const isBlog = route?.params?.isBlog ?? true;
 
   let category;
+  let filteredArticles = articles;
 
   if (isBlog) {
     category = route?.params?.category;
-    console.log(category, articles);
 
     if (Array.isArray(articles) && category) {
-      articles = filter(
+      filteredArticles = filter(
         articles,
-        item => console.log(item),
-        // find(cateogries, { id: category }),
+        item =>
+          console.log('ITEM ///////////////////////////', item) ||
+          find(item.categories, { id: category }),
       );
     } else {
-      articles = articlesData?.articles;
+      filteredArticles = articlesData?.articles;
     }
   }
 
   return (
     <ScrollView style={tailwind('flex flex-col mx-2')}>
       {isBlog
-        ? Array.isArray(articles) &&
-          articles.map(article => (
+        ? Array.isArray(filteredArticles) &&
+          filteredArticles.map(article => (
             <ArticleCard
               key={article.id}
               navigation={navigation}
