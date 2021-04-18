@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import tailwind from 'tailwind-rn';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { GET_CATEGORIES, ROUTES } from '../config';
 
@@ -26,9 +27,12 @@ const CustomDrawer = ({ navigation }) => {
 
   return (
     <SafeAreaView style={tailwind('flex flex-1 bg-gray-200')}>
-      <View
+      <LinearGradient
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        colors={['#34D399', '#3B82F6']}
         style={[
-          tailwind('items-center mt-8 ml-5 mr-5 bg-pink-600 p-2 rounded-xl'),
+          tailwind('items-center mt-8 ml-5 mr-5 p-2 rounded-xl'),
           styles.shadow,
         ]}
       >
@@ -39,13 +43,18 @@ const CustomDrawer = ({ navigation }) => {
         >
           JAMSTACK
         </Text>
-      </View>
+      </LinearGradient>
       <View style={tailwind('flex flex-1 flex-col mt-20 ml-8')}>
         <TouchableOpacity
           onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
         >
           <Text style={mainTextStyle}>Home</Text>
-          <View style={tailwind('h-0.5 bg-pink-600 mt-1 mb-8')} />
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={['#34D399', '#3B82F6']}
+            style={tailwind('h-0.5 mt-1 mb-8')}
+          />
         </TouchableOpacity>
         <View style={tailwind('ml-4')}>
           {data &&
@@ -62,7 +71,12 @@ const CustomDrawer = ({ navigation }) => {
                 >
                   {itm?.Name}
                 </Text>
-                <View style={tailwind('h-0.5 bg-pink-600 mt-1 mb-4')} />
+                <LinearGradient
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  colors={['#34D399', '#3B82F6']}
+                  style={tailwind('h-0.5 mt-1 mb-8')}
+                />
               </TouchableOpacity>
             ))}
         </View>
@@ -71,7 +85,12 @@ const CustomDrawer = ({ navigation }) => {
           onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
         >
           <Text style={mainTextStyle}>Products</Text>
-          <View style={tailwind('h-0.5 bg-pink-600 mt-1 mb-8')} />
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={['#34D399', '#3B82F6']}
+            style={tailwind('h-0.5 mt-1 mb-8')}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
