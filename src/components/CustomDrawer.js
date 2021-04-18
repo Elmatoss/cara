@@ -28,71 +28,78 @@ const CustomDrawer = ({ navigation }) => {
   return (
     <SafeAreaView style={tailwind('flex flex-1 bg-gray-200')}>
       <LinearGradient
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        colors={['#34D399', '#3B82F6']}
-        style={[
-          tailwind('items-center mt-8 ml-5 mr-5 p-2 rounded-xl'),
-          styles.shadow,
-        ]}
+        start={{ x: 1, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        colors={['#fff', '#757575']}
+        style={tailwind('flex flex-1')}
       >
-        <Text
-          style={tailwind(
-            'text-4xl font-bold tracking-widest uppercase text-white',
-          )}
+        <LinearGradient
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          colors={['#34D399', '#3B82F6']}
+          style={[
+            tailwind('items-center mt-8 ml-5 mr-5 p-2 rounded-xl'),
+            styles.shadow,
+          ]}
         >
-          JAMSTACK
-        </Text>
-      </LinearGradient>
-      <View style={tailwind('flex flex-1 flex-col mt-20 ml-8')}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
-        >
-          <Text style={mainTextStyle}>Home</Text>
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            colors={['#34D399', '#3B82F6']}
-            style={tailwind('h-0.5 mt-1 mb-8')}
-          />
-        </TouchableOpacity>
-        <View style={tailwind('ml-4')}>
-          {data &&
-            Array.isArray(data.categories) &&
-            data.categories.map((itm, i) => (
-              <TouchableOpacity
-                key={`category-${i}`}
-                onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
-              >
-                <Text
-                  style={tailwind(
-                    'text-xl font-semibold tracking-wider text-gray-800 uppercase',
-                  )}
+          <Text
+            style={tailwind(
+              'text-4xl font-bold tracking-widest uppercase text-white',
+            )}
+          >
+            JAMSTACK
+          </Text>
+        </LinearGradient>
+        <View style={tailwind('flex flex-1 flex-col mt-20 ml-8')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
+          >
+            <Text style={mainTextStyle}>Home</Text>
+            <LinearGradient
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              colors={['#34D399', '#3B82F6']}
+              style={tailwind('h-0.5 mt-1 mb-8')}
+            />
+          </TouchableOpacity>
+          <View style={tailwind('ml-4')}>
+            {data &&
+              Array.isArray(data.categories) &&
+              data.categories.map((itm, i) => (
+                <TouchableOpacity
+                  key={`category-${i}`}
+                  onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
                 >
-                  {itm?.Name}
-                </Text>
-                <LinearGradient
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 0 }}
-                  colors={['#34D399', '#3B82F6']}
-                  style={tailwind('h-0.5 mt-1 mb-8')}
-                />
-              </TouchableOpacity>
-            ))}
+                  <Text
+                    style={tailwind(
+                      'text-xl font-semibold tracking-wider text-gray-800 uppercase',
+                    )}
+                  >
+                    {itm?.Name}
+                  </Text>
+                  <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    colors={['#34D399', '#3B82F6']}
+                    style={tailwind('h-0.5 mt-1 mb-8')}
+                  />
+                </TouchableOpacity>
+              ))}
+          </View>
+          <TouchableOpacity
+            style={tailwind('mt-5')}
+            onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
+          >
+            <Text style={mainTextStyle}>Products</Text>
+            <LinearGradient
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              colors={['#34D399', '#3B82F6']}
+              style={tailwind('h-0.5 mt-1 mb-8')}
+            />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={tailwind('mt-5')}
-          onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
-        >
-          <Text style={mainTextStyle}>Products</Text>
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            colors={['#34D399', '#3B82F6']}
-            style={tailwind('h-0.5 mt-1 mb-8')}
-          />
-        </TouchableOpacity>
-      </View>
+      </LinearGradient>
     </SafeAreaView>
   );
 };
