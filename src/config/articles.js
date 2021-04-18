@@ -8,6 +8,12 @@ export const articles = [
     Slug: 'letraset-une-société-de-lettrage-française',
     published_at: '2021-04-13T13:50:23.140Z',
     id: '3',
+    categories: [
+      {
+        Name: 'Tech',
+        id: '1',
+      },
+    ],
     Thumbnail: {
       formats: {
         large: {
@@ -58,6 +64,7 @@ export const articles = [
     },
     author: {
       Name: 'Toni Hutter',
+      email: 'hutter.toni@gmail.com',
       Image: {
         formats: {
           thumbnail: {
@@ -83,6 +90,16 @@ export const articles = [
     Slug: 'headless-cms',
     published_at: '2021-02-20T14:56:37.868Z',
     id: '1',
+    categories: [
+      {
+        Name: 'Tech',
+        id: '1',
+      },
+      {
+        Name: 'Nature',
+        id: '3',
+      },
+    ],
     Thumbnail: {
       formats: {
         large: {
@@ -133,6 +150,7 @@ export const articles = [
     },
     author: {
       Name: 'Toni Hutter',
+      email: 'hutter.toni@gmail.com',
       Image: {
         formats: {
           thumbnail: {
@@ -159,6 +177,12 @@ export const articles = [
     Slug: 'lorem-ipsum-began-as-scrambled',
     published_at: '2021-04-13T13:59:38.294Z',
     id: '5',
+    categories: [
+      {
+        Name: 'Nature',
+        id: '3',
+      },
+    ],
     Thumbnail: {
       formats: {
         large: {
@@ -209,6 +233,7 @@ export const articles = [
     },
     author: {
       Name: 'Rene Descartes',
+      email: 'rene.descartes.@mail.com',
       Image: {
         formats: {
           thumbnail: {
@@ -235,6 +260,12 @@ export const articles = [
     Slug: 'from-its-medieval-origins-to-the-digital-era',
     published_at: '2021-04-13T13:52:23.790Z',
     id: '4',
+    categories: [
+      {
+        Name: 'Tech',
+        id: '1',
+      },
+    ],
     Thumbnail: {
       formats: {
         large: {
@@ -285,6 +316,7 @@ export const articles = [
     },
     author: {
       Name: 'Toni Hutter',
+      email: 'hutter.toni@gmail.com',
       Image: {
         formats: {
           thumbnail: {
@@ -311,6 +343,16 @@ export const articles = [
     Slug: 'from-its-medieval-origins-to-the-digital-era.',
     published_at: '2021-04-12T15:03:42.276Z',
     id: '2',
+    categories: [
+      {
+        Name: 'Tech',
+        id: '1',
+      },
+      {
+        Name: 'News',
+        id: '2',
+      },
+    ],
     Thumbnail: {
       formats: {
         large: {
@@ -361,6 +403,7 @@ export const articles = [
     },
     author: {
       Name: 'Toni Hutter',
+      email: 'hutter.toni@gmail.com',
       Image: {
         formats: {
           thumbnail: {
