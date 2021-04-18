@@ -46,7 +46,9 @@ const CustomDrawer = ({ navigation }) => {
       </LinearGradient>
       <View style={tailwind('flex flex-1 flex-col mt-20 ml-8')}>
         <TouchableOpacity
-          onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
+          onPress={() =>
+            navigation.navigate(ROUTES.NESTEDSTACK.HOME, { isBlog: true })
+          }
         >
           <Text style={mainTextStyle}>Home</Text>
           <LinearGradient
@@ -62,7 +64,12 @@ const CustomDrawer = ({ navigation }) => {
             data.categories.map((itm, i) => (
               <TouchableOpacity
                 key={`category-${i}`}
-                onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
+                onPress={() =>
+                  navigation.navigate(ROUTES.NESTEDSTACK.HOME, {
+                    isBlog: true,
+                    category: itm.id,
+                  })
+                }
               >
                 <Text
                   style={tailwind(
@@ -82,7 +89,9 @@ const CustomDrawer = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={tailwind('mt-5')}
-          onPress={() => navigation.navigate(ROUTES.NESTEDSTACK.HOME)}
+          onPress={() =>
+            navigation.navigate(ROUTES.NESTEDSTACK.HOME, { isBlog: false })
+          }
         >
           <Text style={mainTextStyle}>Products</Text>
           <LinearGradient

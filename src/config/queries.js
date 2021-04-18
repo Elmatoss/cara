@@ -6,7 +6,6 @@ export const GET_ARTICLES = gql`
       Title
       Description
       Content
-      Slug
       published_at
       id
       categories {
@@ -18,6 +17,7 @@ export const GET_ARTICLES = gql`
       }
       author {
         Name
+        email
         Image {
           formats
         }
