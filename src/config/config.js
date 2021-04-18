@@ -13,9 +13,9 @@ export const getFontScaling = () => (isWideScreen() ? 1.2 : 1);
 const config = {
   device: {
     os,
-    osVersion
+    osVersion,
   },
-  version: '0.0.1'
+  version: '0.0.1',
 };
 
 export default config;

@@ -1,30 +1,29 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import get from 'lodash/get';
 
-import { ROUTES, INITIALROUTES } from '../config';
+import { ROUTES, INITIAL_NESTED_ROUTE } from '../config';
 import injectScreenDimensions from '../components/injectScreenDimensions';
 import CustomHeader from '../components/CustomHeader';
 import HomeScreen from '../components/screens/HomeScreen';
-import SecondScreen from '../components/screens/SecondScreen';
+import SecondScreen from '../components/screens/ProductScreen';
 
 const Stack = createStackNavigator();
 
-const HomeStackNavigation = ({ dimensions }) => (
-  <NavigationContainer>
+const NestedStackNavigation = props => {
+  const routeName = get(props, 'route.name', ROUTES.DRAWER.HOME);
+  const initialRouteName = INITIAL_NESTED_ROUTE[routeName];
+  const dimensionsWidth = get(props, 'dimensions.width');
+
+  return (
     <Stack.Navigator
-      initialRouteName={INITIALROUTES.HOMESTACK}
+      initialRouteName={initialRouteName}
       headerMode="screen"
       screenOptions={{
-        header: props => <CustomHeader {...props} />,
-        /**
-         * Disable gestureEnabled for android now, see https://github.com/react-navigation/react-navigation/issues/7848
-         * Enable again if bug is fixed
-         */
         gestureEnabled: true,
         gestureDirection: 'horizontal',
         gestureResponseDistance: {
-          horizontal: dimensions.width
+          horizontal: dimensionsWidth,
         },
         cardStyleInterpolator: ({ current, next, layouts }) => {
           return {
@@ -34,25 +33,32 @@ const HomeStackNavigation = ({ dimensions }) => (
                   translateX: current.progress.interpolate({
                     inputRange: [0, 1],
                     outputRange: [layouts.screen.width, 0],
-                    extrapolate: 'clamp'
-                  })
-                }
-              ]
+                    extrapolate: 'clamp',
+                  }),
+                },
+              ],
             },
             overlayStyle: {
               opacity: current.progress.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 0.5]
-              })
-            }
+                outputRange: [0, 0.5],
+              }),
+            },
           };
-        }
+        },
       }}
     >
-      <Stack.Screen name={ROUTES.HOMESTACK.HOME} component={HomeScreen} />
-      <Stack.Screen name={ROUTES.HOMESTACK.SECOND} component={SecondScreen} />
+      <Stack.Screen name={ROUTES.NESTEDSTACK.HOME} component={HomeScreen} />
+      <Stack.Screen
+        name={ROUTES.NESTEDSTACK.PRODUCTS}
+        component={SecondScreen}
+      />
+      <Stack.Screen
+        name={ROUTES.NESTEDSTACK.DETAILS}
+        component={SecondScreen}
+      />
     </Stack.Navigator>
-  </NavigationContainer>
-);
+  );
+};
 
-export default injectScreenDimensions(HomeStackNavigation);
+export default injectScreenDimensions(NestedStackNavigation);
