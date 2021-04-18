@@ -20,6 +20,7 @@ const NestedStackNavigation = props => {
       initialRouteName={initialRouteName}
       headerMode="screen"
       screenOptions={{
+        header: propss => <CustomHeader {...propss} />,
         gestureEnabled: true,
         gestureDirection: 'horizontal',
         gestureResponseDistance: {
