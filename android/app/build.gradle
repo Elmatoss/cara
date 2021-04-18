@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.reactnativegatsbyapp"
+        applicationId "com.cara"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
