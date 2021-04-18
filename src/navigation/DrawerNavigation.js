@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ROUTES } from '../config';
 import injectScreenDimensions from '../components/injectScreenDimensions';
 import NestedStackNavigation from './NestedStackNavigation';
+import CustomDrawer from '../components/CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,7 +16,7 @@ const DrawerNavigation = ({ dimensions }) => {
       drawerStyle={{
         width: dimensions.width,
       }}
-      // drawerContent={props => <CustomDrawer {...props} />}
+      drawerContent={props => <CustomDrawer {...props} />}
     >
       <Drawer.Screen
         name={ROUTES.DRAWER.HOME}
