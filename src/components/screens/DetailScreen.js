@@ -5,22 +5,22 @@ import { ROUTES } from '../../config';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
   },
   text: {
-    fontSize: 30,
+    fontSize: 22,
     color: 'white',
   },
 });
 
-const HomeScreen = ({ navigation }) => (
+const DetailScreen = ({ navigation }) => (
   <View style={styles.container}>
     <TouchableOpacity onPress={() => {}}>
-      <Text style={styles.text}>Next Screen</Text>
+      <Text style={styles.text}>Again..</Text>
     </TouchableOpacity>
   </View>
 );
 
-export default HomeScreen;
+export default DetailScreen;

@@ -1,6 +1,13 @@
 import React from 'react';
-import HomeStackNavigation from './HomeStackNavigation';
+import { NavigationContainer } from '@react-navigation/native';
 
-const RootNavigation = () => <HomeStackNavigation />;
+import DrawerNavigation from './DrawerNavigation';
 
+const RootNavigation = () => {
+  return (
+    <NavigationContainer>
+      <DrawerNavigation />
+    </NavigationContainer>
+  );
+};
 export default RootNavigation;

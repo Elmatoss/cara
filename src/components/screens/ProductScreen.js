@@ -7,20 +7,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'red',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   text: {
     fontSize: 22,
-    color: 'white'
-  }
+    color: 'white',
+  },
 });
 
-const SecondScreen = ({ navigation }) => (
+const ProductScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <TouchableOpacity onPress={() => navigation.push(ROUTES.HOMESTACK.SECOND)}>
+    <TouchableOpacity onPress={() => {}}>
       <Text style={styles.text}>Again..</Text>
     </TouchableOpacity>
   </View>
 );
 
-export default SecondScreen;
+export default ProductScreen;
