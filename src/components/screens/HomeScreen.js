@@ -1,17 +1,16 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import tailwind from 'tailwind-rn';
 
-import { ROUTES } from '../../config';
+import { articles } from '../../config/articles';
+import ArticleCard from '../ArticleCard';
 
-const HomeScreen = ({ navigation }) => (
-  <View style={tailwind('h-screen bg-blue-300 flex flex-1 items-center')}>
-    <TouchableOpacity
-      onPress={() => navigation.navigate(ROUTES.HOMESTACK.SECOND)}
-    >
-      <Text style={tailwind('text-white text-3xl')}>Next Screen</Text>
-    </TouchableOpacity>
-  </View>
+const HomeScreen = () => (
+  <ScrollView style={tailwind('flex flex-col mx-2')}>
+    {articles.map(article => (
+      <ArticleCard key={article.id} {...article} />
+    ))}
+  </ScrollView>
 );
 
 export default HomeScreen;
