@@ -1,18 +1,31 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
 
-import { STRAPI_BASE_URL } from '../config/constants';
+import { ROUTES, STRAPI_BASE_URL } from '../config/constants';
 
 const ArticleCard = ({
   Title,
   Description,
-  Slug,
   Thumbnail,
   published_at,
   author,
+  navigation,
+  Content,
 }) => (
-  <View style={tailwind('bg-white rounded-lg mb-5')}>
+  <TouchableOpacity
+    style={tailwind('bg-white rounded-lg mb-5')}
+    onPress={() =>
+      navigation.navigate(ROUTES.NESTEDSTACK.DETAILS, {
+        Title,
+        Description,
+        Thumbnail,
+        published_at,
+        Content,
+        author,
+      })
+    }
+  >
     <Image
       style={tailwind('w-full h-36 rounded-t-lg')}
       source={{ uri: STRAPI_BASE_URL + Thumbnail.formats.large.url }}
@@ -41,7 +54,7 @@ const ArticleCard = ({
         ...
       </Text>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 export default ArticleCard;

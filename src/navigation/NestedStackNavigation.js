@@ -6,6 +6,7 @@ import { ROUTES, INITIAL_NESTED_ROUTE } from '../config';
 import injectScreenDimensions from '../components/injectScreenDimensions';
 import CustomHeader from '../components/CustomHeader';
 import HomeScreen from '../components/screens/HomeScreen';
+import DetailScreen from '../components/screens/DetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,7 +51,10 @@ const NestedStackNavigation = props => {
     >
       <Stack.Screen name={ROUTES.NESTEDSTACK.HOME} component={HomeScreen} />
       <Stack.Screen name={ROUTES.NESTEDSTACK.PRODUCTS} component={HomeScreen} />
-      <Stack.Screen name={ROUTES.NESTEDSTACK.DETAILS} component={HomeScreen} />
+      <Stack.Screen
+        name={ROUTES.NESTEDSTACK.DETAILS}
+        component={DetailScreen}
+      />
     </Stack.Navigator>
   );
 };

@@ -7,10 +7,12 @@ import { products } from '../../config/products';
 import ArticleCard from '../ArticleCard';
 import ProductCard from '../ProductCard';
 
-const HomeScreen = ({ isBlog = false }) => (
+const HomeScreen = ({ isBlog = true, navigation }) => (
   <ScrollView style={tailwind('flex flex-col mx-2')}>
     {isBlog
-      ? articles.map(article => <ArticleCard key={article.id} {...article} />)
+      ? articles.map(article => (
+          <ArticleCard key={article.id} {...article} navigation={navigation} />
+        ))
       : products.map(product => <ProductCard key={product.id} {...product} />)}
   </ScrollView>
 );
