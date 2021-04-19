@@ -6,6 +6,7 @@
 - Android Studio
 - Android Build Tools via Android Studio (v29.0.2)
 - Accepted Build Tools Lincense
+- Connected Android device via USB or Emulator
 
 ## How to start
 
